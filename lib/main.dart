@@ -3,28 +3,27 @@ class Student {
   String? age;
   String? roll;
   String? sub;
+
+  void displayInformation() {
+    print("Name:$name");
+    print("Age:$age");
+    print("Roll:$roll");
+    print("Subject:$sub");
+  }
 }
 
 void main(){
   Student st = Student();
-  st.name = "M M Hannan";
-  st.age = "25";
-  st.roll = "10";
+  st.name = "M M Hannan Miyaji";
+  st.age = "29";
+  st.roll = "03";
   st.sub = "ICT";
+  st.displayInformation();
 
   Student st1 = Student();
   st1.name = "Mukut";
-  st1.age = "30";
-  st1.roll = "01";
+  st1.age = "32";
+  st1.roll = "1";
   st1.sub = "Math";
-
-  print(st.name);
-  print(st.age);
-  print(st.roll);
-  print(st.sub);
-
-  print(st1.name);
-  print(st1.age);
-  print(st1.roll);
-  print(st1.sub);
+  st1.displayInformation();
 }
