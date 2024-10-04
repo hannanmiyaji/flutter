@@ -4,6 +4,13 @@ class Student {
   String? roll;
   String? sub;
 
+  void setInformation(String n, String a, String r, String s) {
+    name = n;
+    age = a;
+    roll = r;
+    sub = s;
+  }
+
   void displayInformation() {
     print("Name:$name");
     print("Age:$age");
@@ -14,16 +21,14 @@ class Student {
 
 void main(){
   Student st = Student();
-  st.name = "M M Hannan Miyaji";
-  st.age = "29";
-  st.roll = "03";
-  st.sub = "ICT";
+  st.setInformation("M M Hannan Miyaji", "29", "03", "ICT");
   st.displayInformation();
 
   Student st1 = Student();
-  st1.name = "Mukut";
-  st1.age = "32";
-  st1.roll = "1";
-  st1.sub = "Math";
+  st1.setInformation("Mukut", "32", "1", "Math");
   st1.displayInformation();
+
+  Student st2 = Student();
+  st2.setInformation("Mohoshin", "40", "1", "English");
+  st2.displayInformation();
 }
