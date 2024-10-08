@@ -56,7 +56,19 @@ class HomeActivity extends StatelessWidget {
                 maximumSize: Size(350, 350),
               ),
               onPressed: () {
-                print("Tap on elevatedButton");
+                showDialog(
+                    barrierColor: Color(0xFFC8E6C9),
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Delete'),
+                        content: Text('Are you sure?'),
+                        actions: [
+                          TextButton(onPressed: () {}, child: Text('No')),
+                          TextButton(onPressed: () {}, child: Text('Yes')),
+                        ],
+                      );
+                    });
               },
               child: Text("Tap"),
             ),
