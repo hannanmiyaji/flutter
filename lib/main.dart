@@ -81,6 +81,30 @@ class HomeActivity extends StatelessWidget {
                   print('Tapped text button');
                 },
                 child: Text("Click here")),
+            SizedBox(height: 24),
+            GestureDetector(
+              onTap: () {
+                print("Just one click");
+              },
+              onDoubleTap: () {
+                print("Double tapped");
+              },
+              child: Column(
+                children: [
+                  Text("Simple Text"),
+                  Text("Simple Text"),
+                  Text("Simple Text"),
+                  Text("Simple Text"),
+                ],
+              ),
+            ),
+            InkWell(
+              splashColor: Colors.orange,
+              onTap: () {
+                print("In Well");
+              },
+              child: Text('Behave like button'),
+            ),
           ],
         ),
       ),
