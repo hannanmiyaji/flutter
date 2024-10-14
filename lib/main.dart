@@ -22,100 +22,149 @@ class HomeActivity extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text("MyApp Bar"),
+        title: Text('Flutter Appbar'),
       ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 100),
-            ElevatedButton(
-              onPressed: () {
-                //showAboutDialog(context: context);
-                showModalBottomSheet(
-                    //backgroundColor: Color(0xFFC8E6C9),
-                    backgroundColor: Color(0xFFFFE0B2),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    // isScrollControlled: true,
-                    useSafeArea: true,
-                    enableDrag: true,
-                    context: context,
-                    builder: (tex) {
-                      return Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Title',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Divider(
-                            height: 100,
-                            thickness: 8,
-                          ),
-                          Text('Sample'),
-                          Row(
-                            children: [
-                              ElevatedButton(
-                                  onPressed: () {}, child: Text('Cancel')),
-                              ElevatedButton(
-                                  onPressed: () {}, child: Text('Save')),
-                            ],
-                          )
-                        ],
-                      );
-                    });
-              },
-              child: Text('Show dialog'),
-            ),
-            SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: TextField(
-                maxLength: 50,
-                onChanged: (String? value) {
-                  print(value);
-                },
-                controller: TextEditingController(),
-                maxLines: 1,
-                obscureText: true,
-
-                // keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  hintText: 'Phone',
-                  hintStyle: TextStyle(
-                      fontWeight: FontWeight.w400, color: Colors.grey.shade400),
-                  labelText: 'Phone number',
-                  suffixIcon: Icon(Icons.phone),
-                  prefix: Icon(Icons.person),
-                  fillColor: Color(0xFFFFCCBC),
-                  filled: true,
-                  hoverColor: Colors.yellow,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 2),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.limeAccent,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.green,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.grey,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.red,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.cyan,
+                      ),
+                    ],
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 2),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green, width: 2),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 2)),
                 ),
               ),
-            )
-          ],
+              Container(
+                margin: EdgeInsets.only(bottom: 8),
+                height: 100,
+                color: Colors.grey,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 8),
+                height: 100,
+                color: Colors.green,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 8),
+                height: 100,
+                color: Colors.blue,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 8),
+                height: 100,
+                color: Colors.orange,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 8),
+                height: 100,
+                color: Colors.grey,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 8),
+                height: 100,
+                color: Colors.green,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 8),
+                        height: 100,
+                        width: 100,
+                        color: Colors.blue,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
