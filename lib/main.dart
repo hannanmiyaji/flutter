@@ -2,15 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(const MyApp());
+  runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeActivity());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeActivity(),
+    );
   }
 }
 
@@ -19,153 +21,79 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var arrName = [
+      'Mohoshin',
+      'Mukut',
+      'Hannan',
+      'Moniya' 'Mohoshin',
+      'Mukut',
+      'Hannan',
+      'Moniya' 'Mohoshin',
+      'Mukut',
+      'Hannan',
+      'Moniya'
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text('Flutter Appbar'),
+        backgroundColor: Colors.pink,
+        title: Text('MyApp Bar'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          return Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.limeAccent,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.green,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.grey,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.deepPurpleAccent,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.red,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.cyan,
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    Text(
+                      arrName[index],
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                    ),
+                  ],
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                height: 100,
-                color: Colors.grey,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                height: 100,
-                color: Colors.green,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                height: 100,
-                color: Colors.blue,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                height: 100,
-                color: Colors.orange,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                height: 100,
-                color: Colors.grey,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                height: 100,
-                color: Colors.green,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        height: 100,
-                        width: 100,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
+                child: Text(
+                  arrName[index],
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  arrName[index],
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  arrName[index],
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  arrName[index],
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                 ),
               ),
             ],
-          ),
-        ),
+          );
+        },
+        itemCount: arrName.length,
+        separatorBuilder: (context, index) {
+          return Divider(
+            height: 50,
+            thickness: 2,
+            color: Colors.pink,
+          );
+        },
       ),
     );
   }
