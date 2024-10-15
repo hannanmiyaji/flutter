@@ -40,22 +40,26 @@ class HomeActivity extends StatelessWidget {
         elevation: 5,
           shadowColor: Colors.black,
         ),
-      body: ListView.separated(
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: Text('${index + 1}'),
-              title: Text(arrNames[index]),
-              subtitle: Text('Namber'),
-              trailing: Icon(Icons.add),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return Divider(
-              height: 20,
-              thickness: 1,
-            );
-          },
-          itemCount: arrNames.length),
+      body: Center(
+        child: CircleAvatar(
+          child: Container(
+            height: 50,
+            width: 50,
+            child: Column(
+              children: [
+                Container(
+                  width: 20,
+                  height: 20,
+                  child: Image.asset('assets/images/flutter.jpg'),
+                ),
+                Text('Name'),
+              ],
+            ),
+          ),
+          radius: 35,
+          backgroundColor: Colors.red,
+        ),
+      ),
     );
   }
 }
