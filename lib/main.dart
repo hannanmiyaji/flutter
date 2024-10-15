@@ -21,27 +21,41 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var arrNames = [
+      'Mohoshin',
+      'Mukut',
+      'Hannan',
+      'Moniya',
+      'Ibrahim',
+      'Usha',
+      'Mohsana',
+      'Umme Hafsa'
+    ];
 
     return Scaffold(
         appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.greenAccent,
-          title: Text("mrgin & padding"),
-          elevation: 5,
+        title: Text("ListTile"),
+        elevation: 5,
           shadowColor: Colors.black,
         ),
-        body: Container(
-          margin: EdgeInsets.all(30),
-          color: Colors.blue,
-          child: Padding(
-            padding:
-                const EdgeInsets.only(top: 10, left: 10, bottom: 5, right: 3),
-            child: Text('Hello World',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.red)),
-          ),
-        ));
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Text('${index + 1}'),
+              title: Text(arrNames[index]),
+              subtitle: Text('Namber'),
+              trailing: Icon(Icons.add),
+            );
+          },
+          separatorBuilder: (context, index) {
+            return Divider(
+              height: 20,
+              thickness: 1,
+            );
+          },
+          itemCount: arrNames.length),
+    );
   }
 }
