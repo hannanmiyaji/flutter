@@ -21,79 +21,48 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var arrName = [
-      'Mohoshin',
-      'Mukut',
-      'Hannan',
-      'Moniya' 'Mohoshin',
-      'Mukut',
-      'Hannan',
-      'Moniya' 'Mohoshin',
-      'Mukut',
-      'Hannan',
-      'Moniya'
-    ];
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink,
-        title: Text('MyApp Bar'),
+        centerTitle: true,
+        backgroundColor: Colors.greenAccent,
+        title: Text("Dashboard"),
+        elevation: 4,
+        shadowColor: Colors.blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
-      body: ListView.separated(
-        itemBuilder: (context, index) {
-          return Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      arrName[index],
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  arrName[index],
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  arrName[index],
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  arrName[index],
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  arrName[index],
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-            ],
-          );
-        },
-        itemCount: arrName.length,
-        separatorBuilder: (context, index) {
-          return Divider(
-            height: 50,
-            thickness: 2,
-            color: Colors.pink,
-          );
-        },
+      body: Column(
+        children: [
+          Expanded(
+            flex: 4,
+            child: Container(
+              height: 100,
+              color: Colors.cyan,
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              height: 100,
+              color: Colors.purple,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: 100,
+              width: 200,
+              color: Colors.grey,
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              height: 100,
+              color: Colors.lightGreen,
+            ),
+          ),
+        ],
       ),
     );
   }
