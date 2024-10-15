@@ -23,47 +23,25 @@ class HomeActivity extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.greenAccent,
-        title: Text("Dashboard"),
-        elevation: 4,
-        shadowColor: Colors.blue,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 4,
-            child: Container(
-              height: 100,
-              color: Colors.cyan,
-            ),
+          title: Text("mrgin & padding"),
+          elevation: 5,
+          shadowColor: Colors.black,
+        ),
+        body: Container(
+          margin: EdgeInsets.all(30),
+          color: Colors.blue,
+          child: Padding(
+            padding:
+                const EdgeInsets.only(top: 10, left: 10, bottom: 5, right: 3),
+            child: Text('Hello World',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.red)),
           ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              height: 100,
-              color: Colors.purple,
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              height: 100,
-              width: 200,
-              color: Colors.grey,
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              height: 100,
-              color: Colors.lightGreen,
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
