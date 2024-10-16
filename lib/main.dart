@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,6 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.cyan,
+      ),
       home: HomePage(),
     );
   }
@@ -23,20 +28,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.pinkAccent,
         title: Text(
-          'Font Over Text',
-          style: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          'Hello',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.cyanAccent,
       ),
-
       body: Center(
-          child: Text(
-        'Hello World',
-        style: TextStyle(
-            fontFamily: 'FontMain', fontWeight: FontWeight.w700, fontSize: 55),
-      )),
+        child: Card(
+          elevation: 5,
+          shadowColor: Colors.red,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Hello World',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFFFF6F00),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
