@@ -4,62 +4,39 @@ import 'package:flutter/material.dart';
 void main(){
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeActivity(),
+      home: HomePage(),
     );
   }
 }
 
-class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var arrNames = [
-      'Mohoshin',
-      'Mukut',
-      'Hannan',
-      'Moniya',
-      'Ibrahim',
-      'Usha',
-      'Mohsana',
-      'Umme Hafsa'
-    ];
-
     return Scaffold(
-        appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.greenAccent,
-        title: Text("ListTile"),
-        elevation: 5,
-          shadowColor: Colors.black,
+      appBar: AppBar(
+        title: Text(
+          'Font Over Text',
+          style: TextStyle(
+              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-      body: Center(
-        child: CircleAvatar(
-          child: Container(
-            height: 50,
-            width: 50,
-            child: Column(
-              children: [
-                Container(
-                  width: 20,
-                  height: 20,
-                  child: Image.asset('assets/images/flutter.jpg'),
-                ),
-                Text('Name'),
-              ],
-            ),
-          ),
-          radius: 35,
-          backgroundColor: Colors.red,
-        ),
+        backgroundColor: Colors.cyanAccent,
       ),
+
+      body: Center(
+          child: Text(
+        'Hello World',
+        style: TextStyle(
+            fontFamily: 'FontMain', fontWeight: FontWeight.w700, fontSize: 55),
+      )),
     );
   }
 }
