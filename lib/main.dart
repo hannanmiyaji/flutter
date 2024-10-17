@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
@@ -11,92 +11,43 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: HomePage(),
+      home: HomeActivty(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomeActivty extends StatelessWidget {
+  HomeActivty({super.key});
 
-  var emailText = TextEditingController();
-  var passText = TextEditingController();
+  var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        title: Text(
-          'Hello',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+        backgroundColor: Colors.blue,
+        title: Text('MyAppBar'),
+        toolbarHeight: 60,
+        elevation: 7,
+        shadowColor: Colors.redAccent,
       ),
       body: Center(
         child: Container(
-          width: 300,
+          width: 200,
+          height: 200,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                controller: emailText,
-                decoration: InputDecoration(
-                    hintText: 'Enter Email',
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: Colors.green, width: 2),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Color(0xFFBF360C),
-                        width: 2,
-                      ),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          BorderSide(color: Colors.yellowAccent, width: 2),
-                    ),
-                    suffixIcon:
-                        Icon(Icons.remove_red_eye, color: Colors.deepOrange),
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: Colors.deepOrange,
-                    )),
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 10,
-                  ),
-                ],
-              ),
-              TextField(
-                obscureText: true,
-                // obscuringCharacter: '*',
-                controller: passText,
-                decoration: InputDecoration(
-                    hintText: 'Enter Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          BorderSide(color: Colors.cyanAccent, width: 2),
-                    )),
+              Text(
+                'Currernt Time:${time.hour}:${time.minute}:${time.second}',
+                style: TextStyle(fontSize: 24),
               ),
               ElevatedButton(
-                onPressed: () {
-                  String uEmail = emailText.text.toString();
-                  String uPass = passText.text;
-                  print("Email:$uEmail,Pass:$uPass");
-                },
-                child: Text('Login'),
-              ),
+                  onPressed: () {
+                    setState() {}
+                  },
+                  child: Text('Current Time')),
             ],
           ),
         ),
