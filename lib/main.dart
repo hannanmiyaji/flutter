@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,15 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeActivty(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeActivity());
   }
 }
 
-class HomeActivty extends StatelessWidget {
-  HomeActivty({super.key});
+class HomeActivity extends StatelessWidget {
+  HomeActivity({super.key});
 
   var time = DateTime.now();
 
@@ -27,27 +25,34 @@ class HomeActivty extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text('MyAppBar'),
-        toolbarHeight: 60,
-        elevation: 7,
-        shadowColor: Colors.redAccent,
+        title: Text('MyApp'),
       ),
       body: Center(
         child: Container(
-          width: 200,
           height: 200,
+          width: 200,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Currernt Time:${time.hour}:${time.minute}:${time.second}',
-                style: TextStyle(fontSize: 24),
+                'Current Time:${DateFormat('yMMMd').format(time)}',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    setState() {}
+                  onPressed: () async {
+                    DateTime? datePicked = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2021),
+                        lastDate: DateTime((2024)));
                   },
-                  child: Text('Current Time')),
+                  child: Text(
+                    'Show',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.red),
+                  )),
             ],
           ),
         ),
