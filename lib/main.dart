@@ -33,109 +33,40 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.orange,
         title: Text('MyApp'),
       ),
-      body: Container(
-        child: Column(
+      body: Center(
+        child: Stack(
           children: [
-            Expanded(
-              flex: 2,
+            Container(
+              width: 300,
+              height: 300,
+              color: Colors.brown,
+            ),
+            Positioned(
+              top: 24,
+              left: 24,
               child: Container(
+                width: 250,
+                height: 250,
                 color: Colors.blue,
-                child: ListView.builder(
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 100,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.green,
-                      ),
-                    ),
-                  ),
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                ),
               ),
             ),
-            Expanded(
-                flex: 4,
-                child: Container(
-                  color: Colors.orange,
-                  child: ListView.builder(
-                      itemBuilder: (context, index) => Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: Colors.green,
-                              ),
-                              title: Text('Name'),
-                              subtitle: Text('Mob No'),
-                              trailing: Icon(Icons.delete),
-                            ),
-                          )),
-                )),
-            Expanded(
-              flex: 3,
+            Positioned(
+              top: 50,
+              left: 50,
               child: Container(
-                color: Colors.grey,
-                child: ListView.builder(
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(11),
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
+                width: 200,
+                height: 200,
                 color: Colors.green,
-                child: GridView.count(
-                  crossAxisCount: 4,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.brown,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.brown,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.brown,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.brown,
-                        ),
-                      ),
-                    ),
-                  ],
+              ),
+            ),
+            Container(
+              child: Positioned(
+                top: 95,
+                left: 95,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.yellowAccent,
                 ),
               ),
             ),
