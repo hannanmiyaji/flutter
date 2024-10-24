@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,50 +10,136 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeActivity());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
   }
 }
 
-class HomeActivity extends StatelessWidget {
-  HomeActivity({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
-  var time = DateTime.now();
+  callBack() {
+    print('Clicked!!!');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        elevation: 5,
+        shadowColor: Colors.black,
+        backgroundColor: Colors.orange,
         title: Text('MyApp'),
       ),
-      body: Center(
-        child: Container(
-          height: 200,
-          width: 200,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Current Time:${DateFormat('yMMMd').format(time)}',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
+      body: Container(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.blue,
+                child: ListView.builder(
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 100,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.green,
+                      ),
+                    ),
+                  ),
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                ),
               ),
-              ElevatedButton(
-                  onPressed: () async {
-                    DateTime? datePicked = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2021),
-                        lastDate: DateTime((2024)));
-                  },
-                  child: Text(
-                    'Show',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.red),
-                  )),
-            ],
-          ),
+            ),
+            Expanded(
+                flex: 4,
+                child: Container(
+                  color: Colors.orange,
+                  child: ListView.builder(
+                      itemBuilder: (context, index) => Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: Colors.green,
+                              ),
+                              title: Text('Name'),
+                              subtitle: Text('Mob No'),
+                              trailing: Icon(Icons.delete),
+                            ),
+                          )),
+                )),
+            Expanded(
+              flex: 3,
+              child: Container(
+                color: Colors.grey,
+                child: ListView.builder(
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(11),
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.green,
+                child: GridView.count(
+                  crossAxisCount: 4,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.brown,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.brown,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.brown,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.brown,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
