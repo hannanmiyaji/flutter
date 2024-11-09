@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -49,8 +51,9 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
+              backgroundColor: Color(0xFFCE93D8),
               radius: 80,
-              backgroundImage: AssetImage('assets/images/ice_icon.png'),
+              backgroundImage: AssetImage('assets/ice_icon.png'),
             ),
             SizedBox(height: 10),
             Text(
@@ -62,7 +65,7 @@ class MyHomePage extends StatelessWidget {
             CircleAvatar(
               backgroundColor: Color(0xFFCE93D8),
               radius: 80,
-              backgroundImage: AssetImage('assets/images/code_icon.png'),
+              backgroundImage: AssetImage('assets/code_icon.png'),
 
             ),
             SizedBox(height: 32),
@@ -75,7 +78,7 @@ class MyHomePage extends StatelessWidget {
             CircleAvatar(
               backgroundColor: Color(0xFFCE93D8),
               radius: 80,
-              backgroundImage: AssetImage('assets/images/agg_icon.png'),
+              backgroundImage: AssetImage('assets/agg_icon.png'),
             ),
             SizedBox(height: 32),
             Text(
@@ -88,3 +91,4 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
