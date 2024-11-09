@@ -49,7 +49,6 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundColor: Color(0xFFCE93D8),
               radius: 80,
               backgroundImage: AssetImage('assets/images/ice_icon.png'),
             ),
