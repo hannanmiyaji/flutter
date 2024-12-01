@@ -1,160 +1,36 @@
-import 'package:flutter/cupertino.dart';
+import 'package:app1/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(HelloFlutter());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HelloFlutter extends StatelessWidget {
+  const HelloFlutter({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Setting(),
-      theme: ThemeData(
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-          ),
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green,
-          foregroundColor: Colors.white,
-          titleTextStyle: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.green),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
-          ),
-        ),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.orange,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-          ),
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.orange,
-          foregroundColor: Colors.white,
-          titleTextStyle: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.purpleAccent),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.purpleAccent),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.purpleAccent),
-          ),
-        ),
-      ),
-      themeMode: ThemeMode.system,
+      home: Home(),
     );
   }
 }
 
-class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('My profile'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Setting()));
-                  },
-                  child: Text('Go to profile'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  },
-                  child: Text('Go to Home'),
-                ),
-                TextField(),
-                SizedBox(
-                  height: 12,
-                ),
-                TextField(),
-                SizedBox(
-                  height: 12,
-                ),
-                TextField(),
-              ],
-            ),
-          ),
-        ));
-  }
-}
-
-class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
-      ),
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeActivity()));
-              },
-              child: Text('Back')),
-        ],
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('HomeActivity'),
+        title: Text('Hello Flutter'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Stack(
+              alignment: Alignment.center,
               children: [
                 Container(
                   width: 150,
@@ -170,6 +46,17 @@ class HomePage extends StatelessWidget {
                   width: 80,
                   height: 80,
                   color: Colors.black,
+                ),
+                Positioned(
+                  top: 45,
+                  bottom: 45,
+                  left: 4,
+                  right: 45,
+                  child: Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.blue,
+                  ),
                 ),
               ],
             )
