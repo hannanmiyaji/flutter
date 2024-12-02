@@ -1,18 +1,22 @@
-import 'package:app1/Home.dart';
+
+import 'package:app1/profile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(HelloFlutter());
+  runApp(SimpleApp());
 }
 
-class HelloFlutter extends StatelessWidget {
-  const HelloFlutter({super.key});
+class SimpleApp extends StatelessWidget {
+  const SimpleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Home(),
-    );
+    return MaterialApp(initialRoute: '/home', routes: {
+      '/home': (context) => Home(),
+      '/profile': (context) => Profile(),
+      '/settings': (context) => Settings(),
+    });
   }
 }
 
@@ -23,45 +27,48 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Flutter'),
+        backgroundColor: Colors.blue,
+        title: Text('Home'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: 150,
-                  height: 150,
-                  color: Colors.purpleAccent,
-                ),
-                Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.green,
-                ),
-                Container(
-                  width: 80,
-                  height: 80,
-                  color: Colors.black,
-                ),
-                Positioned(
-                  top: 45,
-                  bottom: 45,
-                  left: 4,
-                  right: 45,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.blue,
-                  ),
-                ),
-              ],
-            )
+            ElevatedButton(
+              style:ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              }, child: Text('Go to Profile'),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class Settings extends StatelessWidget {
+  const Settings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text('Profile'),
+      ),
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
+            },
+            child: Text('Go to Settings'),
+          ),
+        ],
       ),
     );
   }
