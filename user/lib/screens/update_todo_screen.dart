@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:user/screens/todo.dart';
+import 'package:user/models/todo.dart';
 
 class UpdateTodoScreen extends StatefulWidget {
   const UpdateTodoScreen(

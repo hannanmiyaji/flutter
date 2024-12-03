@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user/screens/add_new_todo_screen.dart';
-import 'package:user/screens/todo.dart';
+import 'package:user/models/todo.dart';
 import 'package:user/screens/update_todo_screen.dart';
 
 class TodoListScreen extends StatefulWidget {
@@ -9,29 +9,32 @@ class TodoListScreen extends StatefulWidget {
   @override
   State<TodoListScreen> createState() => _TodoListScreenState();
 }
+final List<Todo> listOfTodo = [];
+
+void _addTodo(Todo todo) {
+  listOfTodo.add(todo);
+  setState(() {});
+}
+
+void setState(Null Function() param0) {
+}
+
+void _deleteTodo(int index, Todo todo) {
+  listOfTodo.removeAt(index);
+  setState(() {});
+}
+
+void _updateTodo(int index, Todo todo) {
+  listOfTodo[index] = todo;
+  setState(() {});
+}
+
+void _updateTodoStatus(int index, TodoStatus status) {
+  listOfTodo[index].status = status;
+  setState(() {});
+}
 
 class _TodoListScreenState extends State<TodoListScreen> {
-  final List<Todo> listOfTodo = [];
-
-  void _addTodo(Todo todo) {
-    listOfTodo.add(todo);
-    setState(() {});
-  }
-
-  void _deleteTodo(int index, Todo todo) {
-    listOfTodo.removeAt(index);
-    setState(() {});
-  }
-
-  void _updateTodo(int index, Todo todo) {
-    listOfTodo[index] = todo;
-    setState(() {});
-  }
-
-  void _updateTodoStatus(int index, TodoStatus status) {
-    listOfTodo[index].status = status;
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
