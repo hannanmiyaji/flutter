@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user/screens/todo.dart';
 
 class AddNewTodoScreen extends StatefulWidget {
   const AddNewTodoScreen({super.key});
@@ -9,7 +10,8 @@ class AddNewTodoScreen extends StatefulWidget {
 
 class _AddNewTodoScreenState extends State<AddNewTodoScreen> {
   final TextEditingController _titleTEController = TextEditingController();
-  final TextEditingController _descriptionTEController = TextEditingController();
+  final TextEditingController _descriptionTEController =
+      TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -19,7 +21,6 @@ class _AddNewTodoScreenState extends State<AddNewTodoScreen> {
       appBar: AppBar(
         title: Text('Add new todo'),
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -28,43 +29,51 @@ class _AddNewTodoScreenState extends State<AddNewTodoScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  controller: _titleTEController,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: const InputDecoration(
-                    labelText: 'Title', hintText: 'Write your todo list',),
-
-                    validator:(String? value){
-                      if (value == null || value.trim().isEmpty){
+                    controller: _titleTEController,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: const InputDecoration(
+                      labelText: 'Title',
+                      hintText: 'Write your todo list',
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Enter your title';
                       }
                       return null;
-                    }
-
+                    }),
+                SizedBox(
+                  height: 16,
                 ),
-                SizedBox(height: 16,),
                 TextFormField(
-                  controller: _descriptionTEController,
+                    controller: _descriptionTEController,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                  maxLines: 3,
-                  decoration: const InputDecoration(
-                    labelText: 'Description',
-                    hintText: 'Write your description here',),
-
-                    validator:(String? value){
-                      if (value == null || value.trim().isEmpty){
+                    maxLines: 3,
+                    decoration: const InputDecoration(
+                      labelText: 'Description',
+                      hintText: 'Write your description here',
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Enter your description';
                       }
                       return null;
-                    }
+                    }),
+                SizedBox(
+                  height: 24,
                 ),
-                SizedBox(height: 24,),
-                ElevatedButton(onPressed: (){
-                  if(_formKey.currentState!.validate()){
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Todo todo = Todo(
+                          title: _titleTEController.text.trim(),
+                          description: _descriptionTEController.text.trim());
 
-                  }
-                }, child: const Text('Add'),),
+                      Navigator.pop(context,todo);
+                    }
+                  },
+                  child: const Text('Add'),
+                ),
               ],
-            
             ),
           ),
         ),

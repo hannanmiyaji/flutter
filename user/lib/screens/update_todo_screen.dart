@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:user/screens/todo.dart';
 
 class UpdateTodoScreen extends StatefulWidget {
-  const UpdateTodoScreen({super.key});
+  const UpdateTodoScreen(
+      {super.key, required this.todo, required this.onUpdateTodo});
+
+  final Todo todo;
+  final Function(Todo) onUpdateTodo;
 
   @override
   State<UpdateTodoScreen> createState() => _UpdateTodoScreenState();
@@ -9,9 +14,17 @@ class UpdateTodoScreen extends StatefulWidget {
 
 class _UpdateTodoScreenState extends State<UpdateTodoScreen> {
   final TextEditingController _titleTEController = TextEditingController();
-  final TextEditingController _descriptionTEController = TextEditingController();
+  final TextEditingController _descriptionTEController =
+      TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _titleTEController.text = widget.todo.title;
+    _descriptionTEController.text = widget.todo.title;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +32,6 @@ class _UpdateTodoScreenState extends State<UpdateTodoScreen> {
       appBar: AppBar(
         title: Text('Update todo screen'),
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -31,40 +43,49 @@ class _UpdateTodoScreenState extends State<UpdateTodoScreen> {
                     controller: _titleTEController,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: const InputDecoration(
-                      labelText: 'Title', hintText: 'Write your todo list',),
-
-                    validator:(String? value){
-                      if (value == null || value.trim().isEmpty){
+                      labelText: 'Title',
+                      hintText: 'Write your todo list',
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Enter your title';
                       }
                       return null;
-                    }
-
+                    }),
+                SizedBox(
+                  height: 16,
                 ),
-                SizedBox(height: 16,),
                 TextFormField(
                     controller: _descriptionTEController,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     maxLines: 3,
                     decoration: const InputDecoration(
                       labelText: 'Description',
-                      hintText: 'Write your description here',),
-
-                    validator:(String? value){
-                      if (value == null || value.trim().isEmpty){
+                      hintText: 'Write your description here',
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Enter your description';
                       }
                       return null;
-                    }
+                    }),
+                SizedBox(
+                  height: 24,
                 ),
-                SizedBox(height: 24,),
-                ElevatedButton(onPressed: (){
-                  if(_formKey.currentState!.validate()){
-
-                  }
-                }, child: const Text('Add'),),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Todo todo = Todo(title: _titleTEController.text.trim(),
+                          description: _descriptionTEController.text.trim(),
+                      status: widget.todo.status,
+                      );
+                      widget.onUpdateTodo(todo);
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: const Text('Update'),
+                ),
               ],
-
             ),
           ),
         ),
