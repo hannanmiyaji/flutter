@@ -20,7 +20,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
 
   List<Product> productList = [];
 
-
   bool _getProductListInProgress = false;
 
   @override
@@ -100,7 +99,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
     setState(() {});
   }
 
-
   Future<void> _deletePost() async{
     productList.clear();
     setState(() {});
@@ -118,6 +116,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
       setState(() {});
     }
   }
+
 }
 
 

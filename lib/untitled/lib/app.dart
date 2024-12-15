@@ -22,8 +22,8 @@ class CROUDApp extends StatelessWidget {
           final Product product = settings.arguments as Product;
           widget = UpdateProductScreen(product: product);
         }else if (settings.name == DeletePost.name){
-          final DeletePost deletePost = settings.arguments as DeletePost;
-          widget = DeletePost(deletePost: deletePost);
+          final Product product = settings.arguments as Product;
+          widget = DeletePost();
         }
 
         return MaterialPageRoute(

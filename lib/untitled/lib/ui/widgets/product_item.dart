@@ -30,7 +30,7 @@ class ProductItem extends StatelessWidget {
           IconButton(
               onPressed: () {
 
-                Navigator.pushNamed(context, DeletePost.name,arguments: DeletePost);
+                Navigator.pushNamed(context, DeletePost.name, arguments: product);
 
               }, icon: Icon(Icons.delete)),
 

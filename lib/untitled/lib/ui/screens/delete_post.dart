@@ -1,32 +1,33 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 
 class DeletePost extends StatelessWidget {
-  final String apiUrl = 'https://crud.teamrabbil.com/api/v1/DeleteProduct/675c7291acce3638bb5e0ad2';
+  //final String apiUrl = 'https://crud.teamrabbil.com/api/v1/DeleteProduct/675c7291acce3638bb5e0ad2';
 
   static const String name = '/delete_post';
-  final DeletePost deletePost;
+ // final DeletePost deletePost;
 
-  Future<void> deletePost(String deletePost, BuildContext context) async {
+  Future<void> delete(String postid, BuildContext context) async {
     try {
-      final response = await http.delete(
-        Uri.parse('$apiUrl/$itemId'),
-        headers: {'Content-Type': 'application/json'},
-      );
-
-      if (response.statusCode == 200) {
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Item deleted successfully!')),
-        );
-      } else {
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to delete the item.')),
-        );
-      }
+      // final response = await delete(
+      //   Uri.parse('$apiUrl/$postid'),
+      //   headers: {'Content-Type': 'application/json'},
+      // );
+      //
+      // if (response.statusCode == 200) {
+      //
+      //   ScaffoldMessenger.of(context).showSnackBar(
+      //     SnackBar(content: Text('Item deleted successfully!')),
+      //   );
+      // } else {
+      //
+      //   ScaffoldMessenger.of(context).showSnackBar(
+      //     SnackBar(content: Text('Failed to delete the item.')),
+      //   );
+      // }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e')),
@@ -51,7 +52,7 @@ class DeletePost extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close dialog
-                deleteItem(itemId, context); // Trigger delete API
+                //deleteItem(itemId, context); // Trigger delete API
               },
               child: Text('Delete'),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
