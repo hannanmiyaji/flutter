@@ -6,7 +6,6 @@ import 'package:untitled/models/product.dart';
 class UpdateProductScreen extends StatefulWidget {
   const UpdateProductScreen({super.key, required this.product});
 
-
   static const String name = '/update_product';
 
   final Product product;

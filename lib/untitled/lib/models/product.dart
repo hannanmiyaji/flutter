@@ -16,7 +16,7 @@ class Product {
     this.unitPrice,
     this.quantity,
     this.totalPrice,
-    this.createdDate,
+    this. createdDate,
 
   });
 }
