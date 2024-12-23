@@ -117,6 +117,7 @@ class HomeActivity extends StatelessWidget {
               },
               child: Text('Behave like button'),
             ),
+            //getList()
           ],
         ),
       ),
@@ -124,6 +125,19 @@ class HomeActivity extends StatelessWidget {
         onPressed: () {},
         child: Icon(Icons.account_balance),
       ),
+    );
+  }
+
+  Widget getList(){
+    return ListView.builder(
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index){
+          return Column(
+            children: [
+              Text("Index ${index}")
+            ],
+          );
+        }
     );
   }
 }

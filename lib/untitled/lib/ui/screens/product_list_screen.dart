@@ -110,7 +110,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
     if (response.statusCode == 200){
       final decodedData = jsonDecode(response.body);
       print(decodedData['status']);
-      for (Map<String,dynamic> p in decodedData['data']) {
+      for (Map<String,dynamic> p  in decodedData['data']) {
 
       }
       setState(() {});

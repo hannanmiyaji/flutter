@@ -9,7 +9,7 @@ class AddNewProductScreen extends StatefulWidget {
   static const String name = '/add_new_product';
 
   @override
-  State<AddNewProductScreen> createState() => _AddNewProductScreenState();
+  State<AddNewProductScreen> createState() =>  _AddNewProductScreenState();
 }
 
 final TextEditingController _nameTEController = TextEditingController();
