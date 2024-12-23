@@ -1,22 +1,24 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/forgot_password_verify_email_screen.dart';
-import 'package:task_manager/ui/screens/sign_up_screen.dart';
 import 'package:task_manager/ui/screens/utils/app_colors.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
-  static const String name = '/sign-in';
+  static const String name = '/sign-up';
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordlTEController = TextEditingController();
+  final TextEditingController _fristnameTEController = TextEditingController();
+  final TextEditingController _lastnameTEController = TextEditingController();
+  final TextEditingController _mobileTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -34,18 +36,37 @@ class _SignInScreenState extends State<SignInScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 100),
-                  Text('Get Started With', style: textTheme.titleLarge),
+                  Text('Join With Us', style: textTheme.titleLarge),
                   const SizedBox(height: 24),
                   TextFormField(
                     controller: _emailTEController,
                     obscureText: true,
                     decoration: const InputDecoration(hintText: 'Email'),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 12),
                   TextFormField(
                     controller: _passwordlTEController,
                     obscureText: true,
                     decoration: InputDecoration(hintText: 'Password'),
+                  ),
+                  SizedBox(height: 12),
+                  TextFormField(
+                    controller: _fristnameTEController,
+                    obscureText: true,
+                    decoration: InputDecoration(hintText: 'First name'),
+                  ),
+                  SizedBox(height: 12),
+                  TextFormField(
+                    controller: _lastnameTEController,
+                    obscureText: true,
+                    decoration: InputDecoration(hintText: 'Last name'),
+                  ),
+                  SizedBox(height: 12),
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    controller: _mobileTEController,
+                    obscureText: true,
+                    decoration: InputDecoration(hintText: 'Mobile naumber'),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
@@ -53,13 +74,6 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Icon(Icons.arrow_circle_right_outlined),
                   ),
                   const SizedBox(height: 48),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                          context, ForgotPasswordVerifyEmailScreen.name);
-                    },
-                    child: Text('Forgot Password?'),
-                  ),
                   _buildSignUpSection(),
                 ],
               ),
@@ -73,27 +87,31 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget _buildSignUpSection() {
     return RichText(
       text: TextSpan(
-        text: "Don't have an account? ",
+        text: "Already have an account? ",
         style: TextStyle(
           color: Colors.black54,
           fontWeight: FontWeight.w600,
         ),
         children: [
           TextSpan(
-              text: 'Sign up',
+              text: 'Sign in',
               style: TextStyle(
                 color: AppColors.themeColor,
               ),
               recognizer: TapGestureRecognizer()..onTap = () {
-                Navigator.pushNamed(context, SignUpScreen.name);
+                Navigator.pop(context,ForgotPasswordVerifyEmailScreen.name);
               }),
         ],
       ),
     );
   }
+
   @override
   void dispose() {
     _emailTEController.dispose();
+    _mobileTEController.dispose();
+    _fristnameTEController.dispose();
+    _lastnameTEController.dispose();
     _passwordlTEController.dispose();
     super.dispose();
   }
