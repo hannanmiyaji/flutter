@@ -1,20 +1,21 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/ui/screens/forgot_password_verify_otp_screen.dart';
+import 'package:task_manager/ui/screens/sign_in_screen.dart';
 import 'package:task_manager/ui/screens/utils/app_colors.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class ForgotPasswordVerifyEmailScreen extends StatefulWidget {
-  const ForgotPasswordVerifyEmailScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
 
-  static const String name = '/forgot-password/verify-email';
+  static const String name = '/forgot-password/reset-password';
 
   @override
-  State<ForgotPasswordVerifyEmailScreen> createState() => _ForgotPasswordVerifyEmailScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _ForgotPasswordVerifyEmailScreenState extends State<ForgotPasswordVerifyEmailScreen> {
-  final TextEditingController _emailTEController = TextEditingController();
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
+  final TextEditingController _resetTEController = TextEditingController();
+  final TextEditingController _confirmTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -32,27 +33,34 @@ class _ForgotPasswordVerifyEmailScreenState extends State<ForgotPasswordVerifyEm
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 100),
-                  Text('Your Email Address', style: textTheme.titleLarge),
+                  Text('Set Password', style: textTheme.titleLarge),
                   const SizedBox(height: 4),
-                  Text('A 6 digits of OTP will be sent email address',style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w500,
+                  Text(
+                    'Minimum lenth password 8 charactter with Latter and number combination',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  ),
-
                   SizedBox(height: 24),
                   TextFormField(
-                    controller: _emailTEController,
-                    obscureText: true,
-                    decoration: const InputDecoration(hintText: 'Email'),
+                    controller: _resetTEController,
+                    decoration: InputDecoration(
+                      hintText: 'New Password',
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  TextFormField(
+                    controller: _confirmTEController,
+                    decoration: InputDecoration(
+                      hintText: 'Confirm New Password',
+                    ),
                   ),
                   SizedBox(height: 16),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, ForgotPasswordVerifyOtpScreen.name);
-                    },
-                    child: Icon(Icons.arrow_circle_right_outlined),
+                    onPressed: () {},
+                    child: Text('Confirm'),
                   ),
                   const SizedBox(height: 48),
                   _buildSignInSection(),
@@ -79,16 +87,20 @@ class _ForgotPasswordVerifyEmailScreenState extends State<ForgotPasswordVerifyEm
               style: TextStyle(
                 color: AppColors.themeColor,
               ),
-              recognizer: TapGestureRecognizer()..onTap = () {
-                Navigator.pop(context);
-              }),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, SignInScreen.name, (value) => false);
+                }),
         ],
       ),
     );
   }
+
   @override
   void dispose() {
-    _emailTEController.dispose();
+    _resetTEController.dispose();
+    _confirmTEController.dispose();
     super.dispose();
   }
 }
